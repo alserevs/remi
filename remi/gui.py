@@ -2613,6 +2613,9 @@ class FileFolderItem(Widget):
         self.children['text'].set_text(t)
 
     def get_text(self):
+        if type(self.children['text'].get_text()) == unicode:
+            return self.children['text'].get_text().encode('utf8')
+        
         return self.children['text'].get_text()
 
 
